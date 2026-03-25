@@ -39,8 +39,8 @@ It lets you create your own main quest line and side quests through `config.yml`
 
 ## Requirements
 
-- Paper or Spigot 1.21+  
-- Java 17+  
+- Paper or Spigot 1.20.X - 1.21.X
+- Java 21+  
 - (Optional) Vault + an economy plugin for money rewards
 
 ## Configuration
@@ -52,3 +52,79 @@ Server owners can copy and edit the examples to create their own quest lines.
 
 - Developed by **Moslipper**
 - Plugin: **QuestPath** for **ColonyMC** and other servers
+
+Example:
+
+```yaml
+economy:
+  enabled: true
+  # Fallback rewards if a quest has no reward-money set
+  reward-main-complete: 50.0
+  reward-side-complete: 25.0
+
+quests:
+  main:
+    - id: "TUTORIAL_1_GET_LOG"
+      type: "MINE_BLOCK"
+      display: "Punch a tree"
+      description: "Mine 1 log from any tree."
+      target-block: "ANY_LOG"
+      amount: 1
+      reward-money: 10.0
+
+    - id: "TUTORIAL_2_CRAFT_TABLE"
+      type: "CRAFT_ITEM"
+      display: "Crafting Time"
+      description: "Craft a crafting table."
+      target-item: "CRAFTING_TABLE"
+      amount: 1
+      reward-money: 15.0
+
+    - id: "TUTORIAL_3_KILL_ZOMBIES"
+      type: "KILL_ENTITY"
+      display: "First Blood"
+      description: "Kill 5 zombies."
+      target-entity: "ZOMBIE"
+      amount: 5
+      reward-money: 20.0
+
+    - id: "TUTORIAL_4_VISIT_NETHER"
+      type: "VISIT_DIMENSION"
+      display: "Into the Nether"
+      description: "Enter the Nether dimension."
+      target-world: "NETHER"
+      amount: 1
+      reward-money: 25.0
+
+    - id: "TUTORIAL_5_GET_IRON"
+      type: "OBTAIN_ITEM"
+      display: "Iron Collector"
+      description: "Obtain 16 iron ingots."
+      target-item: "IRON_INGOT"
+      amount: 16
+      reward-money: 30.0
+
+    - id: "TUTORIAL_6_TRAVEL_500"
+      type: "TRAVEL_DISTANCE"
+      display: "Explorer"
+      description: "Travel 500 blocks on foot."
+      amount: 500
+      reward-money: 40.0
+
+  side:
+    - id: "PVE_KILL_50_ZOMBIES"
+      type: "KILL_ENTITY"
+      display: "Zombie Cleanup"
+      description: "Kill 50 zombies."
+      target-entity: "ZOMBIE"
+      amount: 50
+      reward-money: 35.0
+
+    - id: "PVE_KILL_20_SKELETONS"
+      type: "KILL_ENTITY"
+      display: "Bone Collector"
+      description: "Kill 20 skeletons."
+      target-entity: "SKELETON"
+      amount: 20
+      reward-money: 25.0
+
